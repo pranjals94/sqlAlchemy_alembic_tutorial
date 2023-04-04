@@ -1,0 +1,29 @@
+after running the server, add some entry to the tables created in the database using a gui application like navicat.
+
+# refer 'https://alembic.sqlalchemy.org/en/latest' for documentation
+
+#Creating an alembic Environment go to the project folder and type
+ alembic init alembic
+
+ # Edit the .ini file that is created
+ sqlalchemy.url = mysql+mysqlconnector://gaura:gaura@localhost:3306/cultivator_app
+
+ # create a migration script
+ alembic revision -m "add a colum"
+
+ # on the versions folder of alembic a new file will be generated edit it as follows
+ def upgrade() -> None:
+    op.add_column("person", sa.Column("email", sa.String(30)))  # add 'email' column in the person table
+
+ # save it and run the following command
+ # alembic upgrade 8d621d73559d # enter the revision number or use head, which means the latest revision created
+ alembic upgrade head # this will run the revisions step by step
+
+# to downgrade
+# alembic downgrade base # downgrade to the start
+alembic downgrade -1 #downgrade to one step back
+
+# check the current version we are in
+alembic history --indicate-current
+
+
