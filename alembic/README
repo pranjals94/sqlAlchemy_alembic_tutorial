@@ -31,7 +31,7 @@ alembic history --indicate-current
 
 
 -- sql triggers are the functions that operates before or after the Insert,Update And Delete operation
--- below a trigger is created to prevent the update of the 'created_by_id' colum of 'g_user' table
+-- below a trigger named 'updateTest' is created to prevent the update of the 'created_by_id' colum of 'g_user' table
 
 -- CREATE TRIGGER updateTest BEFORE UPDATE
 --    ON g_user
