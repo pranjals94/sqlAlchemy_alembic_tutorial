@@ -27,3 +27,22 @@ alembic downgrade -1 #downgrade to one step back
 alembic history --indicate-current
 
 
+
+
+
+-- sql triggers are the functions that operates before or after the Insert,Update And Delete operation
+-- below a trigger is created to prevent the update of the 'created_by_id' colum of 'g_user' table
+
+-- CREATE TRIGGER updateTest BEFORE UPDATE
+--    ON g_user
+-- 	 FOR EACH ROW
+-- 	 SET new.created_by_id = old.created_by_id
+-- ------------------------------------------------------------
+-- INSERT INTO g_user(parentName) VALUES("hellu")
+-- -- ----------------------------------------------------------
+-- UPDATE g_user
+-- SET parentName = "value Pos"
+-- WHERE id=1;
+-- --
+
+
