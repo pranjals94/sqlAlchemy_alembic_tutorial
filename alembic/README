@@ -7,9 +7,15 @@ after running the server, add some entry to the tables created in the database u
 
  # Edit the .ini file that is created
  sqlalchemy.url = mysql+mysqlconnector://gaura:gaura@localhost:3306/cultivator_app
+ 
+ # Edit in the env.py file
+ # for 'autogenerate' support
+ # from models import model
+ # target_metadata = model.Base.metadata
 
  # create a migration script
  alembic revision -m "add a colum"
+ # alembic revision --autogenerate -m "add a colum"
 
  # on the versions folder of alembic a new file will be generated edit it as follows
  def upgrade() -> None:
